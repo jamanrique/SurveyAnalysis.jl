@@ -1,0 +1,13 @@
+name = "SurveyAnalysis"
+uuid = "d17ac22e-381f-4700-bb25-6ec770bcb302"
+authors = ["Justo A. Manrique Urbina"]
+version = "0.1.0"
+
+[compat]
+julia = "1.5"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
