@@ -13,7 +13,7 @@ The following project has been created after the completion of 2020 Sampling Pro
 - [ ] Analysis of complex survey data
 - [ ] Survey documentation
 
-# Roadmap and specific projects
+# Roadmap and specific principles
 This section will be soon be completed. Nevertheless, there are over-arching principles that will guide the package development:
 
 - **Documentation:** If a function, process or procedure isn't documented, **it does not exist**. Coming from audit practice, I understand the importance of documentation.
