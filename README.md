@@ -3,7 +3,7 @@ This Julia package is created as an open-source alternative for survey analysis 
 
 # Package status
 
-This package is still in *very early development*. Most of the functions aren't written yet! Therefore, this README should be updated along the updates.
+This package is still in *very early development*. Most of the functions aren't written yet! Therefore, this README should be updated as this package is developed.
 
 # Motivation
 The following project has been created after the completion of 2020 Sampling Program for Survey Statisticians at the Institute of Social Research, University of Michigan. I felt that the statistical community could benefit from an open-source package whose sole objective is to create an **end-to-end survey analysis suite** [^1]. This end-to-end survey analysis suite will encompass:
