@@ -13,9 +13,9 @@ function svySampling(DataFrame::AbstractDataFrame,SampleSize::Int)
 end
 
 function svySRS(DataFrame::AbstractDataFrame, SampleSize::Int)
-	## Procedure: Random sort SRSWOR ##
-	## Based in Algorithm 4.5 from Yves Tillé book ##
-	## For each of the DataFrame rows, we generate a random value from a [0,1] Uniform distribution. After this, we sort the DataFrame and select the desired sample size (based in SampleSize value) ##
+	## Procedure: Random sort SRSWOR, based in Algorith 4.5 from Yves Tillé book.
+	## For each of the DataFrame rows, we generate a random value from a [0,1] Uniform distribution.
+	## After this, we sort the DataFrame and select the desired sample size (based in SampleSize value).
 	μ = Uniform()
 	Rand = rand(μ,nrow(DataFrame))
 	DataFrame₂= hcat(DataFrame,Rand)
