@@ -10,6 +10,10 @@ struct SampleObject
 	n::Int
 	SampleStrat::String
 	Sample::AbstractDataFrame
+    function SampleObject(args...)
+
+        new(N, n, SampleStrat, Sample)
+    end
 end
 
 function svySRS(DataFrame::AbstractDataFrame, SampleSize::Int)
