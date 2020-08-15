@@ -2,14 +2,14 @@ using DataFrames, Distributions, RDatasets
 
 iris = dataset("datasets","iris")
 
-function svySampling(DataFrame::AbstractDataFrame,SampleSize::Int)
-	## Initialization of variables ##
-	μ = DiscreteUniform(1,nrow(DataFrame))
-	A = Set()
-	for i in 1:nrow(DataFrame)
-		Randᵤ= rand(μ,1)
-		if in(Randᵤ,A)
-	end
+## Creation of SampleObject. Special attention to SampleStrat. This has to connect with something right? Sampling -> Doc. 
+## Notes to self: Follow Kish notation.
+
+struct SampleObject
+	N::Int
+	n::Int
+	SampleStrat::String
+	Sample::AbstractDataFrame
 end
 
 function svySRS(DataFrame::AbstractDataFrame, SampleSize::Int)
@@ -20,9 +20,14 @@ function svySRS(DataFrame::AbstractDataFrame, SampleSize::Int)
 	Rand = rand(μ,nrow(DataFrame))
 	DataFrame₂= hcat(DataFrame,Rand)
 	sort!(DataFrame₂,:x1,rev=true)
-	return DataFrame₂[1:SampleSize,:]
-	## How to put logs here?
+	DataFrame₂ = DataFrame₂[1:SampleSize,:]
+	## How to put logs here?	
+	return SampleObject(nrow(DataFrame),nrow(DataFrame₂),"SRSWOR",DataFrame₂)
 end
+
+test=svySRS(iris,30)
+typeof(test)
+test.N
 
 function svyReservoirSRS(DataFrame::AbstractDataFrame,SampleSize::Int)
 	## Procedure: Reservoir method for SRSWOR
@@ -40,9 +45,8 @@ function svyReservoirSRS(DataFrame::AbstractDataFrame,SampleSize::Int)
 			DataFrame₂[Randᵤ,:] = DataFrame(row) ## current problem: can't replace row! broadcasting issues.
 		end
 	end
-	return DataFrame₂
+	return SampleObject(nrow(DataFrame),nrow(DataFrame₂),"SRSWOR",DataFrame₂)
 end
 
-svySRS(iris,20)
 svyReservoirSRS(iris,20)
 
