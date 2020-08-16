@@ -1,5 +1,4 @@
 module SurveyAnalysis
-
-# Write your package code here.
+include("SurveyDesign.jl")
 
 end
