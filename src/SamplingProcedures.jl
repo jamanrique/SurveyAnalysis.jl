@@ -48,4 +48,9 @@ end
 
 svyReservoirSRS(iris,20)
 
+function svyStrataSRS(DataFrame::AbstractDataFrame,Strata::Real, SampleSize::Int)
+	
+end
+
+
 end
